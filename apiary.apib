@@ -1,0 +1,122 @@
+FORMAT: 1A
+HOST: http://server2012-iis.useall.corp/apibuildedi/api/v2
+
+# Useall EDI
+
+Esta documentação detalha os endpoints disponíveis na API do Useall EDI e disponibiliza um console interativo para que você consiga testar as requisições sem ser necessário escrever nenhuma linha de código. Além disso, através do console também é possível gerar automaticamente o código das requisições para diversas liguagens (PHP, Java, C#, entre muitas outras)
+
+## Remessa [/remessa/gerar]
+
+### Gerar remessa  [POST]
+
+
++ Request (application/json)
+
+    + Attributes (object)
+        + Banco (number, required) - Banco Useall (EnumBancosUseall)
+        + NumCarteira (string, required) - Número da carteira
+        + NumVariacao (string) - Número de variação da carteira, apenas Banco do brasil
+        + SiglaCarteira (string) - Sigla da certeira
+        + BeneficiarioCpfCnpj (string, required) - CPF ou CNPJ do beneficiário
+        + BeneficiarioNome (string, required) - Nome do beneficiário
+        + BeneficiarioAgencia (string, required) - Agência do beneficiário, sem o dígito
+        + BeneficiarioDigitoAgencia (string, required) - Dígito da agência do beneficiário
+        + BeneficiarioConta (string, required) - Número da conta do beneficiário, sem o dígito
+        + BeneficiarioDigitoConta (string, required) - Dígito da conta do beneficiário
+        + NumConvenio (string, required) - Número do convênio
+        + CNAB (number, required) - CNAB para geração do arquivo (EnumCNAB)
+        + SequencialRemessa (number, required) - Número sequencial do arquivo de remessa
+        + LinhasRemessa (array, required) - Linhas da remessa (Lista de LinhaRemessaDTO)
+             BeneficiarioConta (string, required) - Número da conta do beneficiário, sem o dígito
+             BeneficiarioDigitoConta (string, required) - Dígito da conta do beneficiário
+             NumConvenio (string, required) - Número do convênio
+             CNAB (number, required) - CNAB para geração do arquivo (EnumCNAB)
+             SequencialRemessa (number, required) - Número sequencial do arquivo de remessa
+
+
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
+
+## Retorno [/retorno/gerar]
+
+### Gerar retorno  [POST]
+
+
++ Request (application/json)
+
+    + Attributes (object)
+        + Banco (number, required) - Banco Useall (EnumBancosUseall)
+        + NumCarteira (string, required) - Número da carteira
+        + NumVariacao (string) - Número de variação da carteira, apenas Banco do brasil
+        + SiglaCarteira (string) - Sigla da certeira
+        + BeneficiarioCpfCnpj (string, required) - CPF ou CNPJ do beneficiário
+        + BeneficiarioNome (string, required) - Nome do beneficiário
+        + BeneficiarioAgencia (string, required) - Agência do beneficiário, sem o dígito
+        + BeneficiarioDigitoAgencia (string, required) - Dígito da agência do beneficiário
+        + BeneficiarioConta (string, required) - Número da conta do beneficiário, sem o dígito
+        + BeneficiarioDigitoConta (string, required) - Dígito da conta do beneficiário
+        + NumConvenio (string, required) - Número do convênio
+        + CNAB (number, required) - CNAB para geração do arquivo (EnumCNAB)
+        + SequencialRemessa (number, required) - Número sequencial do arquivo de remessa
+        + LinhasRemessa (array, required) - Linhas da remessa (Lista de LinhaRemessaDTO)
+             BeneficiarioConta (string, required) - Número da conta do beneficiário, sem o dígito
+             BeneficiarioDigitoConta (string, required) - Dígito da conta do beneficiário
+             NumConvenio (string, required) - Número do convênio
+             CNAB (number, required) - CNAB para geração do arquivo (EnumCNAB)
+             SequencialRemessa (number, required) - Número sequencial do arquivo de remessa
+
+
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
